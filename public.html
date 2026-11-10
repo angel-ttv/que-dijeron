@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Qué Dijeron? — Pantalla Pública</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+  <header id="marcador-superior">
+    <div class="equipo-tag" id="tag-equipo-0">
+      <span class="nombre-equipo" id="nombre-equipo-0">EQUIPO 1</span>
+      <span class="puntaje" id="puntaje-0">0</span>
+    </div>
+    <div class="centro-superior">
+      <span class="ronda" id="numero-ronda">Esperando…</span>
+      <div class="strikes" id="strikes-visual">
+        <span class="x" data-i="0">✕</span>
+        <span class="x" data-i="1">✕</span>
+        <span class="x" data-i="2">✕</span>
+      </div>
+    </div>
+    <div class="equipo-tag" id="tag-equipo-1">
+      <span class="nombre-equipo" id="nombre-equipo-1">EQUIPO 2</span>
+      <span class="puntaje" id="puntaje-1">0</span>
+    </div>
+  </header>
+
+  <main>
+    <div id="categoria-etiqueta-wrap"></div>
+    <h1 id="pregunta">Esperando a que el anfitrión inicie el juego…</h1>
+
+    <div id="tablero"></div>
+
+    <div id="puntos-ronda-wrap" class="oculto">
+      Puntos acumulados en esta ronda: <span id="puntos-ronda">0</span>
+    </div>
+
+    <p id="texto-central" class="oculto"></p>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="preguntas.js"></script>
+  <script src="public.js"></script>
+</body>
+</html>

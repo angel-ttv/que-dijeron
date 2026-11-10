@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Qué Dijeron? — Panel de Control</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <div id="estado-conexion">conectando…</div>
+
+  <div id="marcador">
+    <div class="marcador-equipo" id="marcador-equipo-0">
+      <input id="input-nombre-0" value="Equipo 1" maxlength="18">
+      <div class="pts" id="marcador-pts-0">0</div>
+    </div>
+    <div class="marcador-equipo" id="marcador-equipo-1">
+      <input id="input-nombre-1" value="Equipo 2" maxlength="18">
+      <div class="pts" id="marcador-pts-1">0</div>
+    </div>
+  </div>
+
+  <div class="strikes-admin" id="strikes-admin">✕ ✕ ✕</div>
+
+  <!-- Selección de pregunta -->
+  <div class="panel" id="panel-seleccion">
+    <h3>Elegir pregunta</h3>
+    <div id="lista-preguntas"></div>
+  </div>
+
+  <!-- Pregunta activa + respuestas -->
+  <div class="panel oculto" id="panel-pregunta-activa">
+    <span class="fase-tag" id="fase-tag"></span>
+    <div id="pregunta-actual-txt"></div>
+    <div id="lista-respuestas"></div>
+  </div>
+
+  <!-- Controles por fase -->
+  <div class="panel oculto" id="panel-careo">
+    <h3>¿Quién ganó el careo?</h3>
+    <div class="botones-grid" id="botones-careo"></div>
+  </div>
+
+  <div class="panel oculto" id="panel-decision">
+    <h3 id="texto-decision">¿Juega o pasa?</h3>
+    <div class="botones-grid">
+      <button class="btn btn-siguiente" onclick="decidir('jugar')">Jugar</button>
+      <button class="btn btn-pasar" onclick="decidir('pasar')">Pasar</button>
+    </div>
+  </div>
+
+  <div class="panel oculto" id="panel-jugando">
+    <div class="botones-grid una-col">
+      <button class="btn btn-fallo" onclick="fallo()">❌ Marcar fallo</button>
+    </div>
+  </div>
+
+  <div class="panel oculto" id="panel-robo">
+    <p class="instruccion">Si el equipo rival acierta, márcalo arriba en la lista de respuestas. Si falla:</p>
+    <div class="botones-grid una-col">
+      <button class="btn btn-fallo" onclick="roboFalla()">El robo falló</button>
+    </div>
+  </div>
+
+  <div class="panel oculto" id="panel-fin-ronda">
+    <p class="instruccion" id="texto-fin-ronda"></p>
+    <div class="botones-grid una-col">
+      <button class="btn btn-siguiente" onclick="volverASeleccion()">Elegir siguiente pregunta ➡️</button>
+    </div>
+  </div>
+
+  <div class="panel oculto" id="panel-final">
+    <h2 id="ganador-final"></h2>
+  </div>
+
+  <div class="panel">
+    <h3>Administración</h3>
+    <div class="botones-grid una-col">
+      <button class="btn btn-siguiente" onclick="terminarJuego()">🏁 Terminar juego (mostrar ganador)</button>
+      <button class="btn btn-reset" onclick="reiniciarTodo()">Reiniciar marcador y juego</button>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="preguntas.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
